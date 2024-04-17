@@ -13,6 +13,7 @@ WORKDIR $RAILS_ROOT
 
 # Set production environment
 # ENV RAILS_ENV="production" \
+#     RACK_ENV='production' \
 #     BUNDLE_DEPLOYMENT="1" \
 #     BUNDLE_PATH="/usr/local/bundle" \
 #     BUNDLE_WITHOUT="development"
