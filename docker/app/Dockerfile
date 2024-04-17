@@ -5,7 +5,11 @@ ARG RUBY_VERSION=3.2.3
 FROM registry.docker.com/library/ruby:$RUBY_VERSION-slim as base
 
 # Rails app lives here
-WORKDIR /rails
+ENV RAILS_ROOT /rails
+RUN mkdir -p $RAILS_ROOT
+
+# Set working directory, where the commands will be ran:
+WORKDIR $RAILS_ROOT
 
 # Set production environment
 # ENV RAILS_ENV="production" \
@@ -15,6 +19,7 @@ WORKDIR /rails
 
 # Set development environment
 ENV RAILS_ENV="development" \
+    RACK_ENV='development' \
     BUNDLE_DEPLOYMENT="0" \
     BUNDLE_PATH="/usr/local/bundle" 
 
@@ -40,10 +45,6 @@ RUN bundle exec bootsnap precompile app/ lib/
 # Precompiling assets for production without requiring secret RAILS_MASTER_KEY
 RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile
 
-# Precompiling assets for development without requiring secret RAILS_MASTER_KEY
-# RUN SECRET_KEY_BASE_DUMMY=0 ./bin/rails assets:precompile
-
-
 # Final stage for app image
 FROM base
 
@@ -66,4 +67,4 @@ ENTRYPOINT ["/rails/bin/docker-entrypoint"]
 
 # Start the server by default, this can be overwritten at runtime
 EXPOSE 3000
-CMD ["./bin/rails", "server"]
+CMD ["./bin/bundle", "exec", "puma", "-C", "config/puma.rb"]

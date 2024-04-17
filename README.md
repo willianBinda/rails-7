@@ -1,24 +1,11 @@
-# README
+# frramentas utilizadas
+ruby version 3.2.3
+rails version 7.1.3
+nginx
+docker
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# iniciar projeto
 
-Things you may want to cover:
+docker-compose build ou docker compose build
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+docker-compose up ou docker compose up
