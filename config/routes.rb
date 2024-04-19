@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
+  resources :phones
+  resources :addresses
+  resources :contacts
+  resources :kinds
+  # resources :kinds, only: [:edit]
+  # resources :kinds, except: [:edit,:destroy]
   resources :homes
+
+  # get 'pagina2', to: 'kinds#index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
