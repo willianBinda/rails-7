@@ -1,3 +1,12 @@
 .no-underline {
     text-decoration: none;
 }
+
+.custom-alert {
+    background-color: #DDEEFF; /* Cor de fundo azul suave */
+    padding: 10px;            /* Espaçamento interno */
+    border-radius: 5px;       /* Bordas arredondadas */
+    margin: 10px 0;           /* Espaçamento externo */
+    color: #333;              /* Cor do texto */
+    font-weight: bold;        /* Negrito para destacar a mensagem */
+  }

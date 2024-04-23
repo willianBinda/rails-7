@@ -10,9 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_22_163429) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_23_174600) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "acessos", force: :cascade do |t|
+    t.string "nivel"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "addresses", force: :cascade do |t|
     t.string "street"
@@ -62,6 +68,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_22_163429) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "acesso_id"
+    t.index ["acesso_id"], name: "index_users_on_acesso_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -69,4 +77,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_22_163429) do
   add_foreign_key "addresses", "contacts"
   add_foreign_key "contacts", "kinds"
   add_foreign_key "phones", "contacts"
+  add_foreign_key "users", "acessos"
 end

@@ -1,11 +1,13 @@
 class KindsController < ApplicationController
   before_action :authenticate_user!
+  load_and_authorize_resource
   before_action :set_kind, only: %i[ show edit update destroy ]
 
   # GET /kinds or /kinds.json
   def index
     @nome = 'willian'
     @kinds = Kind.all
+
   end
 
   # GET /kinds/1 or /kinds/1.json
@@ -16,6 +18,7 @@ class KindsController < ApplicationController
   # GET /kinds/new
   def new
     @kind = Kind.new
+
 
   end
 

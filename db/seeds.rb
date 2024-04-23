@@ -9,6 +9,8 @@
 #   end
 
 
-Kind.create(description: "Titular")
-Kind.create(description: "Reserva")
-Kind.create(description: "Banco")
+# Kind.create(description: "Titular")
+# Kind.create(description: "Reserva")
+# Kind.create(description: "Banco")
+
+# Acesso.create(nivel:"2")

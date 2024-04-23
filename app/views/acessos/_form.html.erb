@@ -1,0 +1,22 @@
+<%= form_with(model: acesso) do |form| %>
+  <% if acesso.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(acesso.errors.count, "error") %> prohibited this acesso from being saved:</h2>
+
+      <ul>
+        <% acesso.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :nivel, style: "display: block" %>
+    <%= form.text_field :nivel %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

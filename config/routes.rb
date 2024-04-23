@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :acessos
   get 'node_red/index'
   devise_for :users
   # devise_for :users, controllers: { sessions: 'users/sessions' }

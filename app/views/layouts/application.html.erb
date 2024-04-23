@@ -15,7 +15,15 @@
   </head>
 
   <body>
+    <% flash.each do |key, message| %>
+    <div class="custom-alert" >
 
+      
+
+      <%= message %>
+
+    </div>
+  <% end %>
 
     <%if user_signed_in?%>
     
