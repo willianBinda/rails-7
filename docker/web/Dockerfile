@@ -27,5 +27,6 @@
     # vm1
     EXPOSE 80
     
+    # COPY docker/web/.htpasswd /etc/nginx/
     # Use the "exec" form of CMD so Nginx shuts down gracefully on SIGTERM (i.e. `docker stop`)
     CMD [ "nginx", "-g", "daemon off;" ]

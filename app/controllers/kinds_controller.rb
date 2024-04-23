@@ -1,4 +1,5 @@
 class KindsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_kind, only: %i[ show edit update destroy ]
 
   # GET /kinds or /kinds.json
@@ -25,6 +26,7 @@ class KindsController < ApplicationController
 
   # POST /kinds or /kinds.json
   def create
+    puts "entrou no create"
     @kind = Kind.new(kind_params)
 
     respond_to do |format|

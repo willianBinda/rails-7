@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'node_red/index'
+  devise_for :users
+  # devise_for :users, controllers: { sessions: 'users/sessions' }
+  devise_scope :user do
+    get '/users/sign_out' => 'devise/sessions#destroy'
+  end
   resources :phones
   resources :addresses
   resources :contacts
@@ -6,6 +12,7 @@ Rails.application.routes.draw do
   # resources :kinds, only: [:edit]
   # resources :kinds, except: [:edit,:destroy]
   resources :homes
+  get 'authenticate', to: 'auth#authenticate'
 
   # get 'pagina2', to: 'kinds#index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

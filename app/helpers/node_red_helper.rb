@@ -1,0 +1,2 @@
+module NodeRedHelper
+end
