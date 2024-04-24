@@ -6,19 +6,22 @@ class Ability
   def initialize(user)
     return unless user.present?
 
-    user_nivel = user.acesso_id
+    user_nivel = user.acesso.nivel
+    # usuario = User.last
+    # puts usuario.inspect
+    # puts usuario.acesso.nivel
     # perfil = Perfil.find_by(:user_id => user.id, equipamento_id: nil, topico_id: nil)
     # nivel = Acesso.find(perfil.acesso_id)
     # usuario = User.find_by(:acesso_id => acesso.id)
 
     # puts "\nDados: #{usuario}\n"
-    puts "\nDados: #{user_nivel}\n"
-    puts user_nivel == 4
+    # puts "\nDados: #{user_nivel}\n"
+    # puts user_nivel == 4
     case user_nivel
-    when 3
+    when "1"
       # Administradores podem gerenciar tudo
       can :manage, :all
-    when 4
+    when "2"
       # Editores podem criar e editar posts, mas não podem gerenciar usuários
       can :read, Kind
       can :read, Address
@@ -26,7 +29,7 @@ class Ability
       can :read, Phone
       can :read, Home
       can :read, User
-    when 1
+    when "3"
       # Visualizadores só podem ler
       can :read, Kind
     else

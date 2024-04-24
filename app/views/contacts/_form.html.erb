@@ -33,7 +33,33 @@
  <%= collection_select('object', 'metodo', 'coleção', 'valor do metodo que será guardado', 'o que será mostrado', "optios={}")%> 
 <%
 =end%>
-    <%= collection_select(:contact, :kind_id, @tipos_de_kinds, :id, :description)%>
+    <%= form.collection_select(:kind_id, @tipos_de_kinds, :id, :description)%>
+  </div>
+
+  <div>
+    <%= form.fields_for :address do |address_fields|%>
+      <%= form.label :street, style: "display: block" %>
+      <%= address_fields.text_field :street, style: "display: block" %>
+
+      <%= form.label :city, style: "display: block" %>
+      <%= address_fields.text_field :city, style: "display: block"%>
+
+
+      <%= form.label :state, style: "display: block" %>
+      <%= address_fields.select :state,  options_for_select([["Bahia","Ba"],["São Paulo","SP"]]) %>
+    <% end %>
+
+  </div>
+  
+
+  <div>
+    <%= form.fields_for :phones do |phones_fields|%>
+      <%= form.label :phone, style: "display: block" %>
+      <%= phones_fields.text_field :phone, style: "display: block" %>
+
+      
+    <% end %>
+
   </div>
 
   <div>
