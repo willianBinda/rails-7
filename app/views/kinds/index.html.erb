@@ -2,13 +2,36 @@
 
 <h1>Kinds - tipos <%= @nome%></h1>
 
-<div id="kinds">
+<%
+=begin%>
+ <div id="kinds">
   <% @kinds.each do |kind| %>
     <%= render kind %>
     <p>
       <%= link_to "Show this kind", kind %>
     </p>
   <% end %>
-</div>
+</div> 
+<%
+=end%>
+
+<table style="width:100%; padding-top: 1em; padding-bottom: 1em;">
+				<thead>
+          <tr>
+            <th>Descrição</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @kinds.each do |kind| %>
+            <tr>
+              <td><%= kind.description %></td>
+            
+            </tr>
+          <% end %>
+        </tbody>
+			</table>
+
+
+    <%= paginate @kinds %>  
 
 <%= link_to "New kind", new_kind_path %>

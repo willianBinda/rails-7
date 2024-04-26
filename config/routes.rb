@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :bands
   devise_for :users
   # devise_for :users, controllers: { sessions: 'users/sessions' }
   devise_scope :user do

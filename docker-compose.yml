@@ -10,7 +10,7 @@ services:
       - DATABASE_NAME=db_example
       - DATABASE_USERNAME=admin
       - DATABASE_PASS=123123
-      - DATABASE_HOST=172.18.0.1
+      - DATABASE_HOST=172.22.0.1
       - DATABASE_PORT=5432
     # ports:
     #   - 3000:3000

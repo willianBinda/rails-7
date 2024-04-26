@@ -6,7 +6,7 @@ class KindsController < ApplicationController
   # GET /kinds or /kinds.json
   def index
     @nome = 'willian'
-    @kinds = Kind.all
+    @kinds = Kind.all.page(params[:page]).per(2)
 
   end
 
